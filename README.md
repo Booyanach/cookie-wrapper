@@ -1,4 +1,4 @@
-# cookie-wrapper
+# cookie-wrapper ![Build status](https://travis-ci.org/Booyanach/cookie-wrapper.svg)
 Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ## Allows for most usual operations done over cookies, ie:
  *  get a Cookie - getKey(<key:string>)
