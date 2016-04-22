@@ -1,0 +1,30 @@
+{
+  "name": "cookie-wrapper",
+  "version": "0.0.1",
+  "description": "A Wrapper for Cookies in TypeScript",
+  "main": "cookie.wrapper.js",
+  "scripts": {
+    "test": "npm run lint",
+    "compile": "npm test && tsc --declaration",
+    "lint": "tslint ./**.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Booyanach/cookie-wrapper.git"
+  },
+  "keywords": [
+    "Cookies",
+    "TypeScript"
+  ],
+  "author": "Booyanach",
+  "license": "+GPL3",
+  "bugs": {
+    "url": "https://github.com/Booyanach/cookie-wrapper/issues"
+  },
+  "homepage": "https://github.com/Booyanach/cookie-wrapper#readme",
+  "devDependencies": {
+    "codelyzer": "0.0.15",
+    "tslint": "^3.8.0",
+    "typescript": "^1.8.10"
+  }
+}
