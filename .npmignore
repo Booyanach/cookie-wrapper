@@ -1,7 +1,8 @@
+# IDE specific
 .idea
 
-# typings
-typings
+# node_modules
+node_modules
 
 #typescript sources
 *.ts

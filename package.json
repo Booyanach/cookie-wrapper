@@ -1,9 +1,11 @@
 {
   "name": "cookie-wrapper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Wrapper for Cookies in TypeScript",
   "main": "cookie.wrapper.js",
   "scripts": {
+    "clean-install": "rimraf ./node_modules ./dist && npm install",
+    "clean": "rimraf ./dist",
     "test": "npm run lint",
     "compile": "npm test && tsc --declaration",
     "lint": "tslint ./**.ts"
@@ -13,17 +15,20 @@
     "url": "git+https://github.com/Booyanach/cookie-wrapper.git"
   },
   "keywords": [
+    "Cookie",
     "Cookies",
-    "TypeScript"
+    "TypeScript",
+    "Wrapper"
   ],
   "author": "Booyanach",
-  "license": "+GPL3",
+  "license": "GPL-3.0+",
   "bugs": {
     "url": "https://github.com/Booyanach/cookie-wrapper/issues"
   },
   "homepage": "https://github.com/Booyanach/cookie-wrapper#readme",
   "devDependencies": {
     "codelyzer": "0.0.15",
+    "rimraf": "^2.5.2",
     "tslint": "^3.8.0",
     "typescript": "^1.8.10"
   }

@@ -4,6 +4,7 @@
  *  - get a Cookie - getKey(<key:string>)
  *  - set a Cookie - setKey(<key:string>, <value:string>)
  *  - remove a Cookie - removeKey(<key:string>)
+ *  - list all Cookie keys - queryKeys()
  *
  *  TODO: A Cookie interface
  *  TODO: Keys as an Observable
@@ -13,13 +14,6 @@ export default class CookieWrapper {
 
     constructor() {
         this.parseKeys();
-    }
-
-    /**
-     * Populates this.keys as a Javascript Object
-     */
-    private parseKeys() {
-        this.keys = JSON.parse(`{"${document.cookie.replace(/; /g, ",").replace(/=/g, `":"`)}"}`);
     }
 
     /**
@@ -49,6 +43,21 @@ export default class CookieWrapper {
      */
     public removeKey(key: string) {
         delete this.keys[key];
-        this.setKey(key, "; expires=Thu, 01 Jan 1970 00:00:01 GMT");
+        this.setKey(key, '; expires=Thu, 01 Jan 1970 00:00:01 GMT');
+    }
+
+    /**
+     * Returns a list of all the Cookie keys
+     * @returns {string[]}
+     */
+    public queryKeys() {
+        return Object.keys(this.keys);
+    }
+
+    /**
+     * Populates this.keys as a Javascript Object
+     */
+    private parseKeys() {
+        this.keys = JSON.parse(`{"${document.cookie.replace(/; /g, ',').replace(/=/g, `":"`)}"}`);
     }
 }
