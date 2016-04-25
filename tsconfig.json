@@ -11,12 +11,12 @@
     "noImplicitAny": true,
     "listFiles": false,
     "noLib": false,
-    "outDir": "dist/"
+    "outDir": "./"
   },
   "exclude": [
     "node_modules"
   ],
   "files": [
-    "./src/cookie.wrapper.ts"
+    "./cookie.wrapper.ts"
   ]
 }

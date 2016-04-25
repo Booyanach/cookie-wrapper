@@ -23,7 +23,7 @@ export default class CookieWrapper {
      */
     public getKey(key: string) {
         this.parseKeys();
-        if (!this.keys[key]) throw new Error(`Cookie "${key}" does not exist.`);
+        if (!this.keys[key]) return undefined;
         return this.keys[key];
     }
 
@@ -51,6 +51,8 @@ export default class CookieWrapper {
      * @returns {string[]}
      */
     public queryKeys() {
+        this.parseKeys();
+        if (!Object.keys(this.keys)) return [];
         return Object.keys(this.keys);
     }
 
