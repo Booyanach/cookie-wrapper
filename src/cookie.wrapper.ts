@@ -22,7 +22,7 @@ export default class CookieWrapper {
      * @returns {any}
      */
     public getKey(key: string) {
-        if (!this.keys[key]) this.parseKeys();
+        this.parseKeys();
         if (!this.keys[key]) throw new Error(`Cookie "${key}" does not exist.`);
         return this.keys[key];
     }
