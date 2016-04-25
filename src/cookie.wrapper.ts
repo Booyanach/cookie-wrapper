@@ -60,6 +60,12 @@ export default class CookieWrapper {
      * Populates this.keys as a Javascript Object
      */
     private parseKeys() {
-        this.keys = JSON.parse(`{"${document.cookie.replace(/; /g, '","').replace(/=/g, `":"`)}"}`);
+        this.keys = JSON.parse('{' +
+            (
+                document.cookie ?
+                '"' + document.cookie.replace(/=/g, '": "').replace(/; /g, '", "') + '"' :
+                ""
+            ) +
+        '}');
     }
 }
