@@ -5,6 +5,7 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
  *  set a Cookie - setKey(<key:string>, <value:string>)
  *  remove a Cookie - removeKey(<key:string>)
  *  list all Cookie keys - queryKeys()
+ *  set an expiration for a cookie - setExpiration(<key:string>, <days:number>)
 
 ## Installation:
 `npm install cookie-wrapper`
@@ -26,6 +27,9 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ```
 
 ## Changelog:
+ * 0.0.6:
+  * Added the ability to set cookies which expire
+  * Fixed an issue when handling json objects in the cookies
  * 0.0.2:
   * Added the ability to list available keys
 

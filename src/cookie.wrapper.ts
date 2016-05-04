@@ -57,13 +57,25 @@ export default class CookieWrapper {
     }
 
     /**
+     * Returns a list of all the Cookie keys
+     * @returns {string[]}
+     */
+    public setExpiration(key: string, days: number) {
+        this.parseKeys();
+        let expiration = new Date();
+        expiration.setDate(expiration.getDate() + days);
+        this.setKey(key, '; expires=' + expiration);
+    }
+
+    /**
      * Populates this.keys as a Javascript Object
      */
     private parseKeys() {
         this.keys = JSON.parse('{' +
             (
                 document.cookie ?
-                '"' + document.cookie.replace(/=/g, '": "').replace(/; /g, '", "') + '"' :
+                '"' + document.cookie.replace(/"/g, '\\\"').
+                replace(/=/g, '": "').replace(/; /g, '", "') + '"' :
                 ""
             ) +
         '}');
