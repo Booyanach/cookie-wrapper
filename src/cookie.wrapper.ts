@@ -33,7 +33,7 @@ export default class CookieWrapper {
      * @param value
      * @param expiration
      */
-    public setKey(key: string, value: any, expiration?: string = '') {
+    public setKey(key: string, value: any, expiration: string = '') {
         this.keys[key] = encodeURIComponent(JSON.stringify(value));
         document.cookie = `${key}=${this.keys[key]}; ${expiration}` + (expiration ? ';' : '');
     }
