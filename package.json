@@ -1,6 +1,6 @@
 {
   "name": "cookie-wrapper",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A Wrapper for Cookies in TypeScript",
   "main": "cookie.wrapper.js",
   "scripts": {

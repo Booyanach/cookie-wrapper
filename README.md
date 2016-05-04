@@ -27,6 +27,8 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ```
 
 ## Changelog:
+ * 0.0.8:
+  * minimal fix to setKey
  * 0.0.7:
   * Now handles JS objects.
   * Better expiration handling in setKey
