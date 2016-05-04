@@ -24,17 +24,18 @@ export default class CookieWrapper {
     public getKey(key: string) {
         this.parseKeys();
         if (!this.keys[key]) return undefined;
-        return this.keys[key];
+        return JSON.parse(decodeURIComponent(this.keys[key]));
     }
 
     /**
      * Sets a cookie in the Cookie session
      * @param key
      * @param value
+     * @param expiration
      */
-    public setKey(key: string, value: string | number) {
-        this.keys[key] = value;
-        document.cookie = `${key}=${value};`;
+    public setKey(key: string, value: any, expiration?: string = '') {
+        this.keys[key] = encodeURIComponent(JSON.stringify(value));
+        document.cookie = `${key}=${this.keys[key]}; ${expiration}` + (expiration ? ';' : '');
     }
 
     /**
@@ -43,7 +44,7 @@ export default class CookieWrapper {
      */
     public removeKey(key: string) {
         delete this.keys[key];
-        this.setKey(key, '; expires=Thu, 01 Jan 1970 00:00:01 GMT');
+        this.setKey(key, '', 'Thu, 01 Jan 1970 00:00:01 GMT');
     }
 
     /**
@@ -57,14 +58,16 @@ export default class CookieWrapper {
     }
 
     /**
-     * Returns a list of all the Cookie keys
+     * Sets Expiration date on a key
+     * @param key
+     * @param days
      * @returns {string[]}
      */
     public setExpiration(key: string, days: number) {
         this.parseKeys();
         let expiration = new Date();
         expiration.setDate(expiration.getDate() + days);
-        this.setKey(key, '; expires=' + expiration);
+        this.setKey(key, this.getKey(key), expiration.toISOString());
     }
 
     /**

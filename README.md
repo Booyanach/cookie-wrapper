@@ -2,7 +2,7 @@
 Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ## Allows for most usual operations done over cookies, ie:
  *  get a Cookie - getKey(<key:string>)
- *  set a Cookie - setKey(<key:string>, <value:string>)
+ *  set a Cookie - setKey(<key:string>, <value:string>, <expiration?:string>)
  *  remove a Cookie - removeKey(<key:string>)
  *  list all Cookie keys - queryKeys()
  *  set an expiration for a cookie - setExpiration(<key:string>, <days:number>)
@@ -27,6 +27,9 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ```
 
 ## Changelog:
+ * 0.0.7:
+  * Now handles JS objects.
+  * Better expiration handling in setKey
  * 0.0.6:
   * Added the ability to set cookies which expire
   * Fixed an issue when handling json objects in the cookies
