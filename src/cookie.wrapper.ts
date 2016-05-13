@@ -24,7 +24,8 @@ export default class CookieWrapper {
     public getKey(key: string) {
         this.parseKeys();
         if (!this.keys[key]) return undefined;
-        return JSON.parse(decodeURIComponent(this.keys[key]));
+        if (this.keys[key][0] === "{") return JSON.parse(decodeURIComponent(this.keys[key]));
+        return decodeURIComponent(this.keys[key]);
     }
 
     /**
