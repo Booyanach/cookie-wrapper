@@ -16,7 +16,7 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
     import {CookieWrapper} from "cookie.wrapper";
     
     export class HowdyHo {
-        private cookieWrapper: CookieWrapper = new CookieWrapper();
+        private cookieWrapper: CookieWrapper = new CookieWrapper("your.domain.here");
         private message: string;
         
         constructor() {
@@ -27,6 +27,9 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ```
 
 ## Changelog:
+ * 0.1.1:
+
+    CookieWrapper now receives a domain name, so it can handle the (dot) issue
  * 0.1.0:
 
     key parser now gracefully handles non-json strings
