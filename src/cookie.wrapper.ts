@@ -12,7 +12,7 @@
 export default class CookieWrapper {
     private keys: any;
 
-    constructor() {
+    constructor(private domain: string = "") {
         this.parseKeys();
     }
 
@@ -40,7 +40,17 @@ export default class CookieWrapper {
      */
     public setKey(key: string, value: any, expiration: string = '') {
         this.keys[key] = encodeURIComponent(JSON.stringify(value));
-        document.cookie = `${key}=${this.keys[key]}; ${expiration}` + (expiration ? ';' : '');
+
+        let cookie = `${key}=${this.keys[key]};`;
+
+        if (expiration) {
+            cookie += `expires=${expiration};`;
+        }
+        if (this.domain) {
+            cookie += `domain=${this.domain};`;
+        }
+
+        document.cookie = cookie;
     }
 
     /**
