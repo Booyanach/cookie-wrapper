@@ -27,6 +27,9 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ```
 
 ## Changelog:
+ * 0.1.0:
+
+    key parser now gracefully handles non-json strings
  * 0.0.9:
 
     Correction to the key parser
