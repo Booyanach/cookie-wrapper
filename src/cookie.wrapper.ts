@@ -89,13 +89,15 @@ export default class CookieWrapper {
      * Populates this.keys as a Javascript Object
      */
     private parseKeys() {
-        this.keys = JSON.parse('{' +
-            (
-                document.cookie ?
-                '"' + document.cookie.replace(/"/g, '\\\"').
-                replace(/=/g, '": "').replace(/; /g, '", "') + '"' :
-                ""
-            ) +
-        '}');
+        let crumbs = document.cookie.split("; ");
+        if (!crumbs[crumbs.length-1]) {
+            crumbs.pop();
+        }
+        this.keys = JSON.parse("{" +
+            crumbs.map(crumb => {
+                let crumbArr = crumb.split(/=/);
+                return `"${crumbArr[0]}": "${crumbArr[1]}"`;
+            }).join(",") +
+        "}");
     }
 }

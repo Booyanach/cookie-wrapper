@@ -27,6 +27,9 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ```
 
 ## Changelog:
+ * 0.1.2:
+
+    Re-worked the parser
  * 0.1.1:
 
     CookieWrapper now receives a domain name, so it can handle the (dot) issue
