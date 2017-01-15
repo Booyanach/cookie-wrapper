@@ -27,6 +27,15 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ```
 
 ## Changelog:
+ * 0.1.3:
+
+    Cookies are now a separate Object and have their own api:
+        - delete a Cookie - delete()
+        - convert a Cookie to a browser Cookie string - toCookieString()
+        - save a Cookie - save()
+    CookieWrapper now works upon Cookie objects.
+    CookieWrapper was not changed in a significant way, so this should be working fine with projects
+    using previous versions.
  * 0.1.2:
 
     Re-worked the parser
