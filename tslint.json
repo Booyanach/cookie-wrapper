@@ -1,150 +1,56 @@
 {
-  "rulesDirectory": [
-    "node_modules/codelyzer"
-  ],
+  // Only lint TypeScript related code and use ESLint for everything else
+  // From: https://github.com/palantir/tslint/blob/master/src/configs/recommended.ts
   "rules": {
-    "member-access": false,
-    "member-ordering": [
-      true,
-      "public-before-private",
-      "static-before-instance",
-      "variables-before-functions"
-    ],
+    // TS Only
+    "adjacent-overload-signatures": true,
+    "ban-types": {
+      "options": [
+        ["Object", "Avoid using the `Object` type. Did you mean `object`?"],
+        ["Boolean", "Avoid using the `Boolean` type. Did you mean `boolean`?"],
+        ["Number", "Avoid using the `Number` type. Did you mean `number`?"],
+        ["String", "Avoid using the `String` type. Did you mean `string`?"],
+        ["Symbol", "Avoid using the `Symbol` type. Did you mean `symbol`?"]
+      ]
+    },
+    "member-access": true,
     "no-any": false,
-    "no-inferrable-types": false,
+    "no-empty-interface": true,
     "no-internal-module": true,
-    "no-var-requires": false,
+    "no-namespace": true,
+    "no-var-requires": true,
     "typedef": false,
-    "typedef-whitespace": [
-      true,
-      {
-        "call-signature": "nospace",
-        "index-signature": "nospace",
-        "parameter": "nospace",
-        "property-declaration": "nospace",
-        "variable-declaration": "nospace"
-      },
-      {
-        "call-signature": "space",
-        "index-signature": "space",
-        "parameter": "space",
-        "property-declaration": "space",
-        "variable-declaration": "space"
-      }
-    ],
+    "typedef-whitespace": {
+      "options": [
+        {
+          "call-signature": "nospace",
+          "index-signature": "nospace",
+          "parameter": "nospace",
+          "property-declaration": "nospace",
+          "variable-declaration": "nospace"
+        },
+        {
+          "call-signature": "onespace",
+          "index-signature": "onespace",
+          "parameter": "onespace",
+          "property-declaration": "onespace",
+          "variable-declaration": "onespace"
+        }
+      ]
+    },
+    "unified-signatures": true,
 
-    "ban": false,
-    "curly": false,
-    "forin": true,
-    "label-position": true,
-    "label-undefined": true,
-    "no-arg": true,
-    "no-bitwise": true,
-    "no-conditional-assignment": true,
-    "no-console": [
-      true,
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
-    ],
-    "no-construct": true,
-    "no-debugger": true,
-    "no-duplicate-key": true,
-    "no-duplicate-variable": true,
-    "no-empty": false,
-    "no-eval": true,
-    "no-null-keyword": true,
-    "no-shadowed-variable": true,
-    "no-string-literal": true,
-    "no-switch-case-fall-through": true,
-    "no-unreachable": true,
-    "no-unused-expression": true,
-    "no-unused-variable": false,
-    "no-use-before-declare": true,
-    "no-var-keyword": true,
-    "radix": true,
-    "switch-default": true,
-    "triple-equals": [
-      true,
-      "allow-null-check"
-    ],
-    "use-strict": [
-      true,
-      "check-module"
-    ],
-
-    "eofline": true,
-    "indent": [
-      true,
-      "spaces"
-    ],
-    "max-line-length": [
-      true,
-      100
-    ],
-    "no-require-imports": false,
-    "no-trailing-whitespace": true,
-    "object-literal-sort-keys": false,
-    "trailing-comma": [
-      true,
-      {
-        "multiline": "never",
-        "singleline": "never"
-      }
-    ],
-
-    "align": false,
-    "class-name": true,
-    "comment-format": [
-      true,
-      "check-space"
-    ],
-    "interface-name": false,
-    "jsdoc-format": true,
-    "no-consecutive-blank-lines": false,
-    "no-constructor-vars": false,
-    "one-line": [
-      true,
-      "check-open-brace",
-      "check-catch",
-      "check-else",
-      "check-whitespace"
-    ],
-    "quotemark": [
-      true,
-      "single",
-      "avoid-escape"
-    ],
-    "semicolon": true,
-    "variable-name": [
-      true,
-      "check-format",
-      "allow-leading-underscore",
-      "ban-keywords"
-    ],
-    "whitespace": [
-      true,
-      "check-branch",
-      "check-decl",
-      "check-operator",
-      "check-separator",
-      "check-type"
-    ],
-
-    "directive-selector-name": [true, "kebab-case"],
-    "component-selector-name": [true, "kebab-case"],
-    "directive-selector-type": [true, "attribute"],
-    "component-selector-type": [true, "element"],
-    "directive-selector-prefix": false,
-    "component-selector-prefix": false,
-    "host-parameter-decorator": true,
-    "input-parameter-decorator": true,
-    "output-parameter-decorator": true,
-    "attribute-parameter-decorator": false,
-    "input-property-directive": true,
-    "output-property-directive": true,
-    "call-forward-ref":true
+    // Style
+    "array-type": {
+      "options": ["array-simple"]
+    },
+    "callable-types": true,
+    "interface-name": {
+      "options": ["always-prefix"]
+    },
+    "interface-over-type-literal": true,
+    "no-angle-bracket-type-assertion": true,
+    "no-parameter-properties": false,
+    "no-reference-import": true
   }
 }
