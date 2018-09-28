@@ -1,11 +1,11 @@
 # cookie-wrapper ![Build status](https://travis-ci.org/Booyanach/cookie-wrapper.svg) [![npm version](https://badge.fury.io/js/cookie-wrapper.svg)](https://badge.fury.io/js/cookie-wrapper)
 Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ## Allows for most usual operations done over cookies, ie:
- *  get a Cookie - getKey(<key:string>)
- *  set a Cookie - setKey(<key:string>, <value:string>, <expiration?:string>)
- *  remove a Cookie - removeKey(<key:string>)
- *  list all Cookie keys - queryKeys()
- *  set an expiration for a cookie - setExpiration(<key:string>, <days:number>)
+ *  get a Cookie - get(<key:string>)
+ *  set a Cookie - set(<key:string>, <value:string>, <expiration?:string>)
+ *  remove a Cookie - remove(<key:string>)
+ *  list all Cookie keys - query()
+ *  set an expiration for a cookie - expireIn(<key:string>, <days:number>)
 
 ## Installation:
 `npm install cookie-wrapper`
@@ -20,13 +20,21 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
         private message: string;
         
         constructor() {
-            this.cookieWrapper.setKey("Eh", "a cookie!");
-            this.message = this.cookieWrapper.getKey("Eh");
+            this.cookieWrapper.set("Eh", "a cookie!");
+            this.message = this.cookieWrapper.get("Eh");
         }
     }
 ```
 
 ## Changelog:
+ * 1.0.0:
+    Improved api, more readable, no longer with Key in methods
+    Added `update(value: string)` method on the Cookie instance
+    Added `subscription` to Cookie, it is an Observable
+    Users can now use `(cookie as Cookie).subscription.subscribe(() => ...))`
+    to automatically read updates to the Cookie instance
+    Unit Tests
+    2 years later, I finally did this... phew!
  * 0.1.3:
 
     Cookies are now a separate Object and have their own api:
@@ -66,6 +74,4 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
     Added the ability to list available keys
 
 ## List of TODOs:
- *  A Cookie interface
- *  Keys as an Observable
  *  Possibly wrappers for frameworks
