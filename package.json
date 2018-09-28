@@ -6,7 +6,8 @@
   "scripts": {
     "clean-install": "rimraf ./node_modules ./dist && npm install",
     "clean": "rimraf ./dist",
-    "test": "npm run lint",
+    "test": "jest",
+    "test-watch": "jest --watch",
     "compile": "npm test && tsc --declaration",
     "lint": "tslint ./**.ts",
     "update-deps": "ncu --packageFile package.json -u"
@@ -28,11 +29,13 @@
   },
   "homepage": "https://github.com/Booyanach/cookie-wrapper#readme",
   "devDependencies": {
+    "@types/jest": "^23.3.2",
     "codelyzer": "4.4.4",
     "jest": "^23.6.0",
     "npm-check-updates": "^2.14.2",
     "rimraf": "^2.5.2",
     "rxjs": "^6.3.3",
+    "ts-jest": "^23.10.2",
     "tslint": "^5.11.0",
     "typescript": "^3.0.3"
   }
