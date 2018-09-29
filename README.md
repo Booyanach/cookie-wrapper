@@ -6,6 +6,7 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
  *  remove a Cookie - remove(<key:string>)
  *  list all Cookie keys - query()
  *  set an expiration for a cookie - expireIn(<key:string>, <days:number>)
+ *  subscribe to a cooke for when changes occur - subscribe(() => void)
 
 ## Installation:
 `npm install cookie-wrapper`
@@ -27,7 +28,10 @@ Wraps Cookie sessions into a decent-to-use class for TypeScript projects
 ```
 
 ## Changelog:
- * 1.0.0:
+ * 2.0.1:
+    Fix this readme up a bit
+    `Cookie` is now an extension of an `RxJS.Subject` class
+ * 2.0.0:
     Improved api, more readable, no longer with Key in methods
     Added `update(value: string)` method on the Cookie instance
     Added `subscription` to Cookie, it is an Observable
